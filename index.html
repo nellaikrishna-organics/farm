@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Nellai Krishna Organics - Premium Organic Products</title>
+
+    <link rel="stylesheet" href="./css/styles.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <i class="fas fa-seedling"></i>
+                    <h1>Nellai Krishna Organics</h1>
+                </div>
+                <button class="mobile-menu-toggle" id="mobileMenuToggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <nav id="mainNav">
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#products">Products</a></li>
+                        <li><a href="#payment">Payment</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </nav>
+                <div class="header-right">
+                    <div class="language-toggle">
+                        <button class="lang-btn active">EN</button>
+                        <button class="lang-btn" onclick="window.location.href='tamil.html'">தமிழ்</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h2>Premium <span>Organic Products</span> for Healthy Living</h2>
+                    <p>Discover our range of authentic, organic products sourced directly from farms. Experience the purity and quality that nature intended.</p>
+                    <button class="btn btn-primary">Shop Now</button>
+                </div>
+                <div class="hero-image">
+                    <div class="rotating-card-container">
+                        <div class="rotating-card" id="rotatingCard">
+                            <!-- Cards inserted by JavaScript -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section class="products" id="products">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Organic Products</h2>
+                <p>Pure, authentic, and sourced directly from trusted farms</p>
+            </div>
+
+            <div class="products-grid">
+                <!-- Order: Cow Ghee, Rathasali Red Rice, Organic Rice, Coconut Oil, Groundnut Oil, Sesame Oil, Fresh Paneer -->
+                <div class="product-item">
+                    <div class="product-image">
+                        <img src="images/ghee.png" alt="Cow Ghee">
+                    </div>
+                    <h3>Cow Ghee</h3>
+                    <p>Pure desi cow ghee made using traditional bilona method. Rich in nutrients and with a distinct aroma and flavor.</p>
+                    <div class="price">₹450/500 ml</div>
+                    <div class="contact-buttons">
+                        <button class="btn btn-whatsapp" onclick="openWhatsApp('Cow Ghee')">
+                            <i class="fab fa-whatsapp"></i> WhatsApp
+                        </button>
+                        <button class="btn btn-call" onclick="makeCall()">
+                            <i class="fas fa-phone-alt"></i> Call
+                        </button>
+                    </div>
+                </div>
+
+                <div class="product-item">
+                    <div class="product-image">
+                        <img src="images/red-rice.png" alt="Rathasali Red Rice">
+                    </div>
+                    <h3>Rathasali Red Rice</h3>
+                    <p>Traditional short-grain red rice once reserved for rishis, royalty and temple priests. Rich in iron, antioxidants and slow-digesting carbohydrates.</p>
+                    <div class="price">₹200/kg</div>
+                    <div class="contact-buttons">
+                        <button class="btn btn-whatsapp" onclick="openWhatsApp('Rathasali Red Rice')">
+                            <i class="fab fa-whatsapp"></i> WhatsApp
+                        </button>
+                        <button class="btn btn-call" onclick="makeCall()">
+                            <i class="fas fa-phone-alt"></i> Call
+                        </button>
+                    </div>
+                </div>
+
+                <div class="product-item">
+                    <div class="product-image">
+                        <img src="images/organic-rice.jpg" alt="Organic Rice">
+                    </div>
+                    <h3>Organic Rice</h3>
+                    <p>Pure organic rice cultivated using natural farming methods. Free from chemicals and pesticides. Healthy and flavorful.</p>
+                    <div class="price">₹80/kg</div>
+                    <div class="contact-buttons">
+                        <button class="btn btn-whatsapp" onclick="openWhatsApp('Organic Rice')">
+                            <i class="fab fa-whatsapp"></i> WhatsApp
+                        </button>
+                        <button class="btn btn-call" onclick="makeCall()">
+                            <i class="fas fa-phone-alt"></i> Call
+                        </button>
+                    </div>
+                </div>
+
+                <div class="product-item">
+                    <div class="product-image">
+                        <img src="images/coconut-oil.jpg" alt="Coconut Oil">
+                    </div>
+                    <h3>Coconut Oil</h3>
+                    <p>Cold-pressed, virgin coconut oil extracted using traditional methods. Rich in healthy fatty acids and antioxidants.</p>
+                    <div class="price">₹400/liter</div>
+                    <div class="contact-buttons">
+                        <button class="btn btn-whatsapp" onclick="openWhatsApp('Coconut Oil')">
+                            <i class="fab fa-whatsapp"></i> WhatsApp
+                        </button>
+                        <button class="btn btn-call" onclick="makeCall()">
+                            <i class="fas fa-phone-alt"></i> Call
+                        </button>
+                    </div>
+                </div>
+
+                <div class="product-item">
+                    <div class="product-image">
+                        <img src="images/peanut-oil.jpg" alt="Groundnut Oil">
+                    </div>
+                    <h3>Groundnut Oil</h3>
+                    <p>Pure, cold-pressed groundnut oil with natural nutty flavor. Rich in vitamin E and monounsaturated fats.</p>
+                    <div class="price">₹270/liter</div>
+                    <div class="contact-buttons">
+                        <button class="btn btn-whatsapp" onclick="openWhatsApp('Groundnut Oil')">
+                            <i class="fab fa-whatsapp"></i> WhatsApp
+                        </button>
+                        <button class="btn btn-call" onclick="makeCall()">
+                            <i class="fas fa-phone-alt"></i> Call
+                        </button>
+                    </div>
+                </div>
+
+                <div class="product-item">
+                    <div class="product-image">
+                        <img src="images/sesame-oil.jpg" alt="Sesame Oil">
+                    </div>
+                    <h3>Sesame Oil</h3>
+                    <p>Pure, cold-pressed sesame oil with rich aroma and flavor. Known for its antioxidant properties and high smoke point.</p>
+                    <div class="price">₹380/liter</div>
+                    <div class="contact-buttons">
+                        <button class="btn btn-whatsapp" onclick="openWhatsApp('Sesame Oil')">
+                            <i class="fab fa-whatsapp"></i> WhatsApp
+                        </button>
+                        <button class="btn btn-call" onclick="makeCall()">
+                            <i class="fas fa-phone-alt"></i> Call
+                        </button>
+                    </div>
+                </div>
+
+                <div class="product-item center-product">
+                    <div class="product-image">
+                        <img src="images/paneer.jpg" alt="Fresh Paneer">
+                    </div>
+                    <h3>Fresh Paneer</h3>
+                    <p>Handcrafted from pure, organic milk. Our paneer is rich in protein and calcium, with no preservatives or additives.</p>
+                    <div class="price">₹100/kg</div>
+                    <div class="contact-buttons">
+                        <button class="btn btn-whatsapp" onclick="openWhatsApp('Fresh Paneer')">
+                            <i class="fab fa-whatsapp"></i> WhatsApp
+                        </button>
+                        <button class="btn btn-call" onclick="makeCall()">
+                            <i class="fas fa-phone-alt"></i> Call
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Payment Section -->
+    <section class="payment" id="payment">
+        <div class="container">
+            <div class="section-title">
+                <h2>Easy Payment Options</h2>
+                <p>Scan the QR code below to make payments</p>
+            </div>
+            <div class="payment-content">
+                <div class="payment-info">
+                    <h3>Secure Payment Methods</h3>
+                    <p>We accept payments through various UPI apps. Simply scan the QR code with your preferred payment app to complete your purchase.</p>
+                    <p>For cash on delivery, please contact us directly via WhatsApp or phone call.</p>
+                    <div class="contact-buttons" style="justify-content: flex-start; margin-top: 30px;">
+                        <button class="btn btn-whatsapp" onclick="openWhatsApp('Payment Enquiry')">
+                            <i class="fab fa-whatsapp"></i> Payment Help
+                        </button>
+                        <button class="btn btn-call" onclick="makeCall()">
+                            <i class="fas fa-phone-alt"></i> Call for COD
+                        </button>
+                    </div>
+                </div>
+
+                <div class="qr-codes">
+                    <div class="qr-code-container">
+                        <div class="qr-item">
+                            <div class="qr-code">
+                                <!-- Single QR image (place your file as images/payment.jpg) -->
+                                <img src="images/payment.jpg" alt="UPI QR Code" style="max-width:100%; max-height:100%; object-fit:contain;">
+                            </div>
+                            <p>Scan to Pay (UPI)</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>Contact Us</h2>
+                <p>Get in touch with us for orders and enquiries</p>
+            </div>
+            <div class="contact-content">
+                <div class="contact-details">
+                    <h3>Get in Touch</h3>
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h4>Our Location</h4>
+                                <p>972 C, Kumaresan Nagar, Thirumal Nagar, Tirunelveli, Tamil Nadu 627011</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-phone-alt"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h4>Phone Number</h4>
+                                <p>+91 96005 47243</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h4>Email Address</h4>
+                                <p>info@farmfreshorganics.com</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fab fa-whatsapp"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h4>WhatsApp</h4>
+                                <p>+91 96005 47243</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="contact-action">
+                        <div class="contact-buttons">
+                            <button class="btn btn-whatsapp" onclick="openWhatsApp('General Enquiry')">
+                                <i class="fab fa-whatsapp"></i> WhatsApp
+                            </button>
+                            <button class="btn btn-call" onclick="makeCall()">
+                                <i class="fas fa-phone-alt"></i> Call Now
+                            </button>
+                            <button class="btn btn-sms" onclick="sendSMS()">
+                                <i class="fas fa-sms"></i> Send SMS
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-qr">
+                    <h3>Save Our Contact</h3>
+                    <div class="qr-code">
+                        <img src="images/address.png" alt="Save Contact QR" style="max-width:100%; max-height:100%; object-fit:contain;">
+                    </div>
+                    <p>Scan to save our contact information</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <i class="fas fa-seedling"></i>
+                    <h2>Nellai Krishna Organics</h2>
+                </div>
+                <div class="footer-links">
+                    <a href="#home">Home</a>
+                    <a href="#products">Products</a>
+                    <a href="#payment">Payment</a>
+                    <a href="#contact">Contact</a>
+                    <a href="#">Privacy Policy</a>
+                </div>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+                <div class="contact-buttons" style="margin-bottom: 20px;">
+                    <button class="btn btn-google" onclick="shareOnGoogle()">
+                        <i class="fab fa-google"></i> Share on Google
+                    </button>
+                </div>
+                <p class="copyright">© 2023 Nellai Krishna Organics. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Product data for rotating card in the requested order:
+        const products = [
+            {
+                name: "Cow Ghee",
+                description: "Pure desi cow ghee made using traditional bilona method. Rich in nutrients with distinct aroma.",
+                price: "₹450/500 ml",
+                image: "images/ghee.png"
+            },
+            {
+                name: "Rathasali Red Rice",
+                description: "Traditional short-grain red rice once reserved for rishis and royalty. Rich in iron, antioxidants and slow-digesting carbohydrates.",
+                price: "₹200/kg",
+                image: "images/red-rice.png"
+            },
+            {
+                name: "Organic Rice",
+                description: "Pure organic rice cultivated using natural farming methods. Free from chemicals and pesticides. Healthy and flavorful.",
+                price: "₹80/kg",
+                image: "images/organic-rice.jpg"
+            },
+            {
+                name: "Coconut Oil",
+                description: "Cold-pressed, virgin coconut oil extracted using traditional methods. Rich in healthy fatty acids.",
+                price: "₹400/liter",
+                image: "images/coconut-oil.jpg"
+            },
+            {
+                name: "Groundnut Oil",
+                description: "Pure, cold-pressed groundnut oil with natural nutty flavor. Rich in vitamin E and monounsaturated fats.",
+                price: "₹270/liter",
+                image: "images/peanut-oil.jpg"
+            },
+            {
+                name: "Sesame Oil",
+                description: "Pure, cold-pressed sesame oil with rich aroma and flavor. Known for its antioxidant properties.",
+                price: "₹380/liter",
+                image: "images/sesame-oil.jpg"
+            },
+            {
+                name: "Fresh Paneer",
+                description: "Handcrafted from pure, organic milk. Rich in protein and calcium with no preservatives or additives.",
+                price: "₹100/kg",
+                image: "images/paneer.jpg"
+            }
+        ];
+
+        // Initialize rotating card
+        function initRotatingCard() {
+            const cardContainer = document.getElementById('rotatingCard');
+
+            // Create card faces
+            products.forEach((product, index) => {
+                const cardFace = document.createElement('div');
+                cardFace.className = `card-face ${index === 0 ? 'active' : ''}`;
+
+                cardFace.innerHTML = `
+                    <div class="product-image">
+                        <img src="${product.image}" alt="${product.name}">
+                    </div>
+                    <div class="product-info">
+                        <h3>${product.name}</h3>
+                        <p>${product.description}</p>
+                        <div class="product-price">${product.price}</div>
+                        <div class="contact-buttons">
+                            <button class="btn btn-whatsapp" onclick="openWhatsApp('${product.name}')">
+                                <i class="fab fa-whatsapp"></i> Order
+                            </button>
+                            <button class="btn btn-call" onclick="makeCall()">
+                                <i class="fas fa-phone-alt"></i> Call
+                            </button>
+                        </div>
+                    </div>
+                `;
+
+                cardContainer.appendChild(cardFace);
+            });
+
+            // Add dots for navigation
+            const cardNav = document.createElement('div');
+            cardNav.className = 'card-nav';
+            cardNav.innerHTML = `
+                <div class="card-dots">
+                    ${products.map((_, i) =>
+                        `<span class="dot ${i === 0 ? 'active' : ''}" onclick="rotateToCard(${i})"></span>`
+                    ).join('')}
+                </div>
+            `;
+
+            // Append the navigation to the card container
+            cardContainer.appendChild(cardNav);
+
+            // Auto rotate every 5 seconds
+            setInterval(() => {
+                rotateCard();
+            }, 5000);
+        }
+
+        let currentCardIndex = 0;
+
+        // Rotate to next card
+        function rotateCard() {
+            const card = document.getElementById('rotatingCard');
+            const totalCards = products.length;
+
+            // Hide current card
+            card.children[currentCardIndex].classList.remove('active');
+
+            // Calculate next card index
+            currentCardIndex = (currentCardIndex + 1) % totalCards;
+
+            // Show next card
+            card.children[currentCardIndex].classList.add('active');
+
+            // Update active dot
+            document.querySelectorAll('.dot').forEach((dot, index) => {
+                dot.classList.toggle('active', index === currentCardIndex);
+            });
+        }
+
+        // Rotate to specific card
+        function rotateToCard(index) {
+            const card = document.getElementById('rotatingCard');
+
+            // Hide current card
+            card.children[currentCardIndex].classList.remove('active');
+
+            // Show selected card
+            currentCardIndex = index;
+            card.children[currentCardIndex].classList.add('active');
+
+            // Update active dot
+            document.querySelectorAll('.dot').forEach((dot, i) => {
+                dot.classList.toggle('active', i === currentCardIndex);
+            });
+        }
+
+        // WhatsApp integration with fallback
+        function openWhatsApp(productName) {
+            const phoneNumber = "919600547243";
+            const message = `Hello, I'm interested in ${productName}. Can you provide more details and help me place an order?`;
+            const encodedMessage = encodeURIComponent(message);
+            const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
+
+            // Try to open WhatsApp
+            const newWindow = window.open(whatsappUrl, '_blank');
+
+            // If WhatsApp fails to open (no internet or app not installed), show alternatives
+            setTimeout(() => {
+                if (!newWindow || newWindow.closed || typeof newWindow.closed == 'undefined') {
+                    showContactAlternatives(productName, phoneNumber, message);
+                }
+            }, 500);
+        }
+
+        // Show alternative contact methods if WhatsApp fails
+        function showContactAlternatives(productName, phoneNumber, message) {
+            if(confirm("WhatsApp is not available. Would you like to call or send an SMS instead?")) {
+                // User can choose to call or send SMS
+                const choice = confirm("Click OK to call, Cancel to send SMS");
+                if(choice) {
+                    makeCall();
+                } else {
+                    sendSMS(message);
+                }
+            }
+        }
+
+        // Make a phone call
+        function makeCall() {
+            const phoneNumber = "+919600547243";
+            window.open(`tel:${phoneNumber}`, '_self');
+        }
+
+        // Send SMS
+        function sendSMS(message = "Hello, I'm interested in your organic products. Please contact me.") {
+            const phoneNumber = "+919600547243";
+            const encodedMessage = encodeURIComponent(message);
+            window.open(`sms:${phoneNumber}?body=${encodedMessage}`, '_self');
+        }
+
+        // Share on Google
+        function shareOnGoogle() {
+            const shareUrl = "https://share.google/FHuYuae5l935CwY6h";
+            window.open(shareUrl, '_blank');
+        }
+
+        // Mobile menu toggle
+        function initMobileMenu() {
+            const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+            const mainNav = document.getElementById('mainNav');
+
+            if (mobileMenuToggle && mainNav) {
+                mobileMenuToggle.addEventListener('click', function() {
+                    mainNav.classList.toggle('active');
+
+                    // Change icon based on menu state
+                    const icon = this.querySelector('i');
+                    if (mainNav.classList.contains('active')) {
+                        icon.classList.remove('fa-bars');
+                        icon.classList.add('fa-times');
+                    } else {
+                        icon.classList.remove('fa-times');
+                        icon.classList.add('fa-bars');
+                    }
+                });
+
+                // Close menu when clicking on a link
+                const navLinks = mainNav.querySelectorAll('a');
+                navLinks.forEach(link => {
+                    link.addEventListener('click', function() {
+                        mainNav.classList.remove('active');
+                        mobileMenuToggle.querySelector('i').classList.remove('fa-times');
+                        mobileMenuToggle.querySelector('i').classList.add('fa-bars');
+                    });
+                });
+            }
+        }
+
+        // Initialize the page
+        document.addEventListener('DOMContentLoaded', function() {
+            initRotatingCard();
+            initMobileMenu();
+        });
+    </script>
+</body>
+</html>
