@@ -7,104 +7,28 @@
 
     <link rel="stylesheet" href="./css/styles.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
-    <!-- Small page-specific overrides (kept minimal since you already have styles.css) -->
-    <style>
-        /* Logo image sizing and tagline */
-        .logo { display:flex; align-items:center; gap:12px; }
-        .logo-img {
-            width:140px;
-            height:140px;
-            object-fit:contain;
-            border-radius:8px;
-            transform:scale(1.4);
-            max-height:80px; /* keeps header height same */
-            width:auto; /* allow natural width */
-        }
-        .logo h1 { margin:0; font-size:1.25rem; }
-        .tagline {
-            margin:0;
-            font-size:0.9rem;
-            opacity:0.95;
-            font-weight:700;
-            color:black; /* organic green shade */
-            }
-
-        /* Header phone styling */
-        .header-phone { display:flex; align-items:center; gap:8px; margin-left:18px; }
-        .header-phone a { text-decoration:none; color:inherit; font-weight:600; font-size:0.95rem; }
-
-        /* Make phone number slightly larger in contact section */
-        .contact-info .contact-item .contact-text p.phone-large { font-size:1.05rem; font-weight:600; margin:0.15rem 0 0 0; }
-
-        /* Payment QR responsive sizing: make QR a bit larger on small screens */
-        .qr-code img.payment-qr { max-width:220px; max-height:220px; object-fit:contain; }
-        @media (max-width:600px) {
-            .qr-code img.payment-qr { max-width:260px; max-height:260px; }
-            .logo-img { width:64px; height:64px; }
-            .logo h1 { font-size:1.1rem; }
-            .header-phone a { font-size:1rem; }
-        }
-
-        /* Small spacing tweak for header-right to keep alignment good */
-        .header-right { display:flex; align-items:center; gap:12px; }
-
-        /* Ensure rotating card images don't overflow small screens */
-        .rotating-card .product-image img { max-width:100%; height:auto; }
-
-        /* Increase rotating card size on mobile */
-@media (max-width: 600px) {
-    .rotating-card-container {
-        transform: scale(1.3);      /* increase overall card size */
-        transform-origin: center;
-        margin-top: 20px;
-        margin-bottom: 20px;
-    }
-
-    .rotating-card {
-        padding: 18px !important;
-    }
-
-    .rotating-card .product-image img {
-        width: 150px !important;   /* larger product image */
-        height: auto;
-    }
-
-    .rotating-card .product-info h3 {
-        font-size: 1.2rem !important;
-    }
-
-    .rotating-card .product-info p {
-        font-size: 1rem !important;
-    }
-
-    .rotating-card .product-price {
-        font-size: 1.05rem !important;
-        font-weight: 700;
-    }
-}
-
-    </style>
 </head>
 <body>
     <!-- Header -->
     <header>
         <div class="container">
             <div class="header-content">
-                <div class="logo">
-                    <!-- Use your logo.png here -->
-                    <img src="images/logo.png" alt="Nellai Krishna Organics" class="logo-img"/>
-                    <div>
-                        <h1>Nellai Krishna Organics</h1>
-                        <p class="tagline">Pure, authentic, and sourced directly from trusted farms</p>
+                <div style="display:flex; align-items:center; gap:12px; min-width:0;">
+                    <div class="logo" style="min-width:0;">
+                        <!-- Use your logo.png here -->
+                        <img src="images/logo.png" alt="Nellai Krishna Organics" class="logo-img"/>
+                        <div style="min-width:0;">
+                            <h1>Nellai Krishna Organics</h1>
+                            <p class="tagline">Pure, authentic, and sourced directly from trusted farms</p>
+                        </div>
                     </div>
+
+                    <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle menu">
+                        <i class="fas fa-bars"></i>
+                    </button>
                 </div>
 
-                <button class="mobile-menu-toggle" id="mobileMenuToggle">
-                    <i class="fas fa-bars"></i>
-                </button>
-
-                <nav id="mainNav">
+                <nav id="mainNav" aria-label="Main navigation">
                     <ul>
                         <li><a href="#home">Home</a></li>
                         <li><a href="#products">Products</a></li>
@@ -113,15 +37,15 @@
                     </ul>
                 </nav>
 
-                <div class="header-right">
-                    <div class="language-toggle">
-                        <button class="lang-btn active">EN</button>
+                <div class="header-right" role="group" aria-label="Header actions">
+                    <div class="language-toggle" role="group" aria-label="Language switch">
+                        <button class="lang-btn active" aria-pressed="true">EN</button>
                         <button class="lang-btn" onclick="window.location.href='tamil.html'">தமிழ்</button>
                     </div>
 
                     <!-- Phone number in header (clickable) -->
-                    <div class="header-phone">
-                        <i class="fas fa-phone-alt"></i>
+                    <div class="header-phone" title="Call us">
+                        <i class="fas fa-phone-alt" aria-hidden="true"></i>
                         <a href="tel:+919600547243">+91 96005 47243</a>
                     </div>
                 </div>
@@ -132,13 +56,13 @@
     <!-- Hero Section -->
     <section class="hero" id="home">
         <div class="container">
-            <div class="hero-content">
-                <div class="hero-text">
+            <div class="hero-content" style="display:flex; gap:24px; align-items:center; flex-wrap:wrap;">
+                <div class="hero-text" style="flex:1; min-width:260px;">
                     <h2>Premium <span>Organic Products</span> for Healthy Living</h2>
                     <p>Discover our range of authentic, organic products sourced directly from farms. Experience the purity and quality that nature intended.</p>
                     <button class="btn btn-primary">Shop Now</button>
                 </div>
-                <div class="hero-image">
+                <div class="hero-image" style="flex:1; min-width:260px;">
                     <div class="rotating-card-container">
                         <div class="rotating-card" id="rotatingCard">
                             <!-- Cards inserted by JavaScript -->
@@ -308,7 +232,7 @@
                         <div class="qr-item">
                             <div class="qr-code">
                                 <!-- Single QR image (place your file as images/payment.jpg) -->
-                                <img src="images/payment.jpg" alt="UPI QR Code" class="payment-qr">
+                                <img src="images/payment.jpg" alt="UPI QR Code" class="payment-qr" style="max-width:100%; height:auto;">
                             </div>
                             <p>Scan to Pay (UPI)</p>
                         </div>
@@ -469,15 +393,17 @@
             products.forEach((product, index) => {
                 const cardFace = document.createElement('div');
                 cardFace.className = `card-face ${index === 0 ? 'active' : ''}`;
+                cardFace.style.padding = '12px';
+                if (index === 0) cardFace.classList.add('active');
 
                 cardFace.innerHTML = `
-                    <div class="product-image">
-                        <img src="${product.image}" alt="${product.name}">
+                    <div class="product-image" style="text-align:center;">
+                        <img src="${product.image}" alt="${product.name}" style="max-width:160px; height:auto;">
                     </div>
-                    <div class="product-info">
-                        <h3>${product.name}</h3>
-                        <p>${product.description}</p>
-                        <div class="product-price">${product.price}</div>
+                    <div class="product-info" style="padding-top:10px;">
+                        <h3 style="margin:6px 0 4px 0;">${product.name}</h3>
+                        <p style="margin:0 0 8px 0;">${product.description}</p>
+                        <div class="product-price" style="margin-bottom:10px;">${product.price}</div>
                         <div class="contact-buttons">
                             <button class="btn btn-whatsapp" onclick="openWhatsApp('${product.name}')">
                                 <i class="fab fa-whatsapp"></i> Order
@@ -495,10 +421,12 @@
             // Add dots for navigation
             const cardNav = document.createElement('div');
             cardNav.className = 'card-nav';
+            cardNav.style.textAlign = 'center';
+            cardNav.style.marginTop = '8px';
             cardNav.innerHTML = `
-                <div class="card-dots">
+                <div class="card-dots" style="display:inline-block;">
                     ${products.map((_, i) =>
-                        `<span class="dot ${i === 0 ? 'active' : ''}" onclick="rotateToCard(${i})"></span>`
+                        `<span class="dot ${i === 0 ? 'active' : ''}" onclick="rotateToCard(${i})" style="display:inline-block;width:9px;height:9px;border-radius:50%;background:#ccc;margin:6px;cursor:pointer;"></span>`
                     ).join('')}
                 </div>
             `;
@@ -517,16 +445,17 @@
         // Rotate to next card
         function rotateCard() {
             const card = document.getElementById('rotatingCard');
-            const totalCards = products.length;
+            const faces = Array.from(card.children).filter(c => c.classList && c.classList.contains('card-face'));
+            const totalCards = faces.length;
+            if (totalCards === 0) return;
 
-            // Hide current card
-            card.children[currentCardIndex].classList.remove('active');
+            faces[currentCardIndex].classList.remove('active');
 
             // Calculate next card index
             currentCardIndex = (currentCardIndex + 1) % totalCards;
 
             // Show next card
-            card.children[currentCardIndex].classList.add('active');
+            faces[currentCardIndex].classList.add('active');
 
             // Update active dot
             document.querySelectorAll('.dot').forEach((dot, index) => {
@@ -537,15 +466,13 @@
         // Rotate to specific card
         function rotateToCard(index) {
             const card = document.getElementById('rotatingCard');
+            const faces = Array.from(card.children).filter(c => c.classList && c.classList.contains('card-face'));
+            if (faces.length === 0) return;
 
-            // Hide current card
-            card.children[currentCardIndex].classList.remove('active');
-
-            // Show selected card
+            faces[currentCardIndex].classList.remove('active');
             currentCardIndex = index;
-            card.children[currentCardIndex].classList.add('active');
+            faces[currentCardIndex].classList.add('active');
 
-            // Update active dot
             document.querySelectorAll('.dot').forEach((dot, i) => {
                 dot.classList.toggle('active', i === currentCardIndex);
             });

@@ -34,6 +34,7 @@ header {
     align-items: center;
 }
 
+/* Payment QR sizing */
 .payment-qr {
     max-width: 320px;   /* increase width */
     max-height: 320px;  /* increase height */
@@ -42,24 +43,31 @@ header {
     object-fit: contain;
 }
 
+/* Logo block (kept from your external CSS) */
 .logo {
     display: flex;
     align-items: center;
     gap: 10px;
 }
 
+/* Icon in logo */
 .logo i {
     font-size: 28px;
     color: #4caf50;
 }
 
+/* Title styling */
 .logo h1 {
     font-size: 22px;
     font-weight: 700;
     color: #2e7d32;
     line-height: 1.2;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
+/* NAV */
 nav ul {
     display: flex;
     list-style: none;
@@ -265,6 +273,7 @@ nav a:hover::after {
     position: relative;
 }
 
+/* Product card styles (used by rotating card faces) */
 .product-card {
     background: white;
     border-radius: 15px;
@@ -1016,4 +1025,171 @@ copyright {
         width: 100%;
         max-width: 250px;
     }
+}
+
+/* ---------- Logo image and header overrides to prevent overlap ---------- */
+
+/* Ensure logo image uses max-height (no transform scaling) and won't overflow text */
+.logo-img {
+    display:block;
+    max-height: 72px;  /* controls vertical size */
+    width: auto;
+    object-fit: contain;
+    border-radius: 8px;
+    flex-shrink: 0;
+}
+
+/* Slightly increase spacing between logo image and text to avoid overlap */
+.logo { gap: 16px; }
+
+/* Ensure tagline doesn't overflow */
+.tagline {
+    margin: 0;
+    font-size: 0.9rem;
+    opacity: 0.95;
+    font-weight: 700;
+    color: #163a14;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* Header phone small tweaks */
+.header-phone { display:flex; align-items:center; gap:8px; margin-left:8px; }
+.header-phone a { text-decoration:none; color:inherit; font-weight:600; font-size:0.95rem; }
+
+/* Rotating card image safety */
+.rotating-card .product-image img { max-width:100%; height:auto; display:block; }
+
+/* Increase rotating card size on mobile, kept subtle */
+@media (max-width: 600px) {
+    .logo { gap: 12px; }
+    .logo-img { max-height: 56px; }
+    .hero-text h2 { font-size: 32px; }
+    .rotating-card-container {
+        transform: scale(1.12);
+        transform-origin: center;
+        margin-top: 12px;
+        margin-bottom: 12px;
+    }
+    .rotating-card .product-image img { width: 140px !important; height: auto; }
+    .rotating-card .product-info h3 { font-size: 1.15rem !important; }
+}
+
+/* Ensure nav toggling uses same class names as JS */
+nav#mainNav.active { display: block; }
+
+/* --- Strong header overlap fix: paste at end of styles.css --- */
+/* Visual debug helpers (remove after testing) */
+.header-content, .logo, .logo-text, #mainNav, .header-right { outline: none; }
+
+/* Make header layout resilient */
+header { position: relative; z-index: 50; }
+.header-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  width: 100%;
+  padding: 8px 12px;
+  box-sizing: border-box;
+}
+
+/* Logo area: allow it to shrink but limit width */
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;            /* allow children to shrink */
+  flex: 0 1 auto;          /* allow shrinking but not forced to grow */
+}
+
+/* Limit logo-text width so it doesn't overflow into nav */
+.logo-text {
+  min-width: 0;
+  max-width: 40ch;         /* limit width of title text */
+  overflow: hidden;
+}
+
+/* Title: allow wrapping on narrow screens (no overlap) */
+.logo-text h1 {
+  margin: 0;
+  font-size: 1.05rem;      /* modest size */
+  line-height: 1.05;
+  white-space: normal;     /* allow wrapping */
+  word-break: break-word;  /* break long words */
+}
+
+/* Tagline smaller and wrap/hidden if too long */
+.logo-text .tagline {
+  margin: 0;
+  font-size: 0.78rem;
+  line-height: 1;
+  color: #666;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+}
+
+/* Logo image fixed and won't shrink below this */
+.logo-img {
+  width: 120px;
+  height: auto;
+  flex: 0 0 56px; /* fixed box for image */
+}
+
+/* Nav: take remaining space but keep min-width 0 so children can shrink */
+#mainNav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 1 1 auto;
+  min-width: 0;
+  margin: 0 12px;
+}
+
+/* nav list inside */
+#mainNav ul {
+  display: flex;
+  gap: 18px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  align-items: center;
+  flex-wrap: nowrap;
+}
+
+/* nav links will shrink with ellipsis on tiny screens */
+#mainNav a {
+  white-space: nowrap;
+  display: inline-block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 12ch;
+}
+
+/* Right-side controls (language/phone) should not shrink */
+.header-right {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  flex: 0 0 auto;
+  min-width: 0;
+}
+
+/* Mobile behavior: collapse nav, make nav full width panel when active */
+@media (max-width: 900px) {
+  .logo-img { width: 48px; flex: 0 0 48px; }
+  .logo-text h1 { font-size: 0.95rem; }
+  #mainNav { display: none; position: absolute; left: 0; right: 0; top: 64px; background: #fff; padding: 12px; box-shadow: 0 8px 20px rgba(0,0,0,0.08); }
+  #mainNav.active { display: flex; flex-direction: column; gap: 8px; }
+  #mainNav ul { flex-direction: column; gap: 6px; }
+  .logo-text .tagline { display: none; }
+}
+
+/* If header height is small, allow the title to reduce line-height */
+@media (max-width: 480px) {
+  .logo-text h1 { font-size: 0.9rem; line-height: 1; }
+  #mainNav a { max-width: 10ch; }
 }
