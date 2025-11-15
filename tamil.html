@@ -3,13 +3,58 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>நெள்ளை கிருஷ்ணா ஆர்கானிக்ஸ் - சுத்தமான கரிம உணவுப் பொருட்கள்</title>
+    <title>நெல்லை கிருஷ்ணா ஆர்கானிக்ஸ் - சுத்தமான கரிம உணவுப் பொருட்கள்</title>
 
-    <!-- external stylesheet (you already have this) -->
     <link rel="stylesheet" href="./css/styles.css">
-
-    <!-- font awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* Header layout fixes */
+        .header-content { display:flex; align-items:center; justify-content:space-between; gap:16px; }
+        .logo { display:flex; align-items:center; gap:12px; flex:0 0 auto; }
+        .logo-img {
+            width:140px;
+            height:140px;
+            object-fit:contain;
+            border-radius:8px;
+            transform:scale(1.4);
+            max-height:80px; /* keeps header height same */
+            width:auto; /* allow natural width */
+        }
+        .logo h1 { margin:0; font-size:1.25rem; line-height:1; }
+        .tagline { margin:0; font-size:0.95rem; opacity:0.95; font-weight:700; color:black; }
+
+        /* Navigation styling */
+        nav#mainNav { flex:1 1 auto; display:flex; justify-content:center; }
+        nav#mainNav ul { display:flex; gap:20px; margin:0; padding:0; list-style:none; align-items:center; }
+        nav#mainNav a { text-decoration:none; color:inherit; font-weight:600; }
+
+        /* Header right (language + phone) stays compact */
+        .header-right { display:flex; align-items:center; gap:12px; flex:0 0 auto; }
+        .header-phone { display:flex; align-items:center; gap:8px; margin-left:8px; }
+        .header-phone a { text-decoration:none; color:inherit; font-weight:700; font-size:1rem; }
+
+        /* Make contact phone in contact section slightly larger */
+        .contact-info .contact-item .contact-text p.phone-large { font-size:1.05rem; font-weight:700; margin:0.15rem 0 0 0; }
+
+        /* QR sizing */
+        .qr-code img.payment-qr { max-width:220px; max-height:220px; object-fit:contain; }
+
+        /* Mobile behavior */
+        .mobile-menu-toggle { display:none; background:none; border:none; font-size:1.25rem; }
+        @media (max-width:900px) {
+            nav#mainNav { display:none; }
+            .mobile-menu-toggle { display:block; }
+            .logo-img { height:64px; max-height:64px; }
+            .header-content { gap:8px; }
+            nav#mainNav.active { display:block; position:absolute; top:70px; left:0; right:0; background:var(--bg, #fff); padding:12px 16px; box-shadow:0 6px 20px rgba(0,0,0,0.06); }
+            nav#mainNav ul { flex-direction:column; gap:12px; }
+        }
+
+        /* Small tweaks to keep header visually balanced */
+        .header-content .logo > div { display:flex; flex-direction:column; justify-content:center; }
+        .hero-text { max-width:640px; }
+    </style>
 </head>
 <body>
     <!-- Header -->
@@ -17,12 +62,17 @@
         <div class="container">
             <div class="header-content">
                 <div class="logo">
-                    <i class="fas fa-seedling"></i>
-                    <h1>நெள்ளை கிருஷ்ணா ஆர்கானிக்ஸ்</h1>
+                    <img src="images/logo.png" alt="நெல்லை கிருஷ்ணா ஆர்கானிக்ஸ்" class="logo-img"/>
+                    <div>
+                        <h1>நெல்லை கிருஷ்ணா ஆர்கானிக்ஸ்</h1>
+                        <p class="tagline">Pure, authentic, and sourced directly from trusted farms</p>
+                    </div>
                 </div>
+
                 <button class="mobile-menu-toggle" id="mobileMenuToggle">
                     <i class="fas fa-bars"></i>
                 </button>
+
                 <nav id="mainNav">
                     <ul>
                         <li><a href="#home">முகப்பு</a></li>
@@ -31,10 +81,16 @@
                         <li><a href="#contact">தொடர்பு</a></li>
                     </ul>
                 </nav>
+
                 <div class="header-right">
                     <div class="language-toggle">
                         <button class="lang-btn" onclick="window.location.href='index.html'">EN</button>
                         <button class="lang-btn active">தமிழ்</button>
+                    </div>
+
+                    <div class="header-phone">
+                        <i class="fas fa-phone-alt"></i>
+                        <a href="tel:+919600547243">+91 96005 47243</a>
                     </div>
                 </div>
             </div>
@@ -61,16 +117,16 @@
         </div>
     </section>
 
-    <!-- Products Section (ordered as requested) -->
+    <!-- Products Section -->
     <section class="products" id="products">
         <div class="container">
             <div class="section-title">
                 <h2>எங்கள் கரிம பொருட்கள்</h2>
-                <p>தூய, உண்மையான, நம்பகமான பண்ணைகளில் இருந்து நேரடியாக பெறப்பட்டது</p>
+                <p class="tagline">Pure, authentic, and sourced directly from trusted farms</p>
             </div>
 
             <div class="products-grid">
-                <!-- 1: Cow Ghee -->
+                <!-- Products (Coconut oil price updated to ₹450) -->
                 <div class="product-item">
                     <div class="product-image">
                         <img src="images/ghee.png" alt="மாட்டு நெய்">
@@ -88,7 +144,6 @@
                     </div>
                 </div>
 
-                <!-- 2: Rathasali Red Rice -->
                 <div class="product-item">
                     <div class="product-image">
                         <img src="images/red-rice.png" alt="ரதசாலி சிவப்பு அரிசி">
@@ -97,7 +152,7 @@
                     <p>ரத்தசாலி அரிசி இரும்புச் சத்து மற்றும் நார்ச்சத்து அதிகம் கொண்ட பாரம்பரிய அரிசியாகும். இதை தொடர்ந்து சாப்பிடுவதால் சர்க்கரை நோயை கட்டுப்படுத்த உதவுகிறது என்றும், உடல்நலத்திற்கு பல நன்மைகள் அளிக்கிறது என்றும் கூறப்படுகிறது.</p>
                     <div class="price">₹200/கிகி</div>
                     <div class="contact-buttons">
-                        <button class="btn btn-whatsapp" onclick="openWhatsApp('ரதசாலி சிவப்பு அரிசி')">
+                        <button class="btn btn-whatsapp" onclick="openWhatsApp('ரத்தசாலி சிவப்பு அரிசி')">
                             <i class="fab fa-whatsapp"></i> WhatsApp
                         </button>
                         <button class="btn btn-call" onclick="makeCall()">
@@ -106,7 +161,6 @@
                     </div>
                 </div>
 
-                <!-- 3: Organic Rice -->
                 <div class="product-item">
                     <div class="product-image">
                         <img src="images/organic-rice.jpg" alt="கரிம அரிசி">
@@ -124,14 +178,13 @@
                     </div>
                 </div>
 
-                <!-- 4: Coconut Oil -->
                 <div class="product-item">
                     <div class="product-image">
                         <img src="images/coconut-oil.jpg" alt="தேங்காய் எண்ணெய்">
                     </div>
                     <h3>தேங்காய் எண்ணெய்</h3>
                     <p>பாரம்பரிய முறைகளைப் பயன்படுத்தி பிரித்தெடுக்கப்பட்ட குளிர்-அழுத்தப்பட்ட, கன்னி தேங்காய் எண்ணெய். ஆரோக்கியமான கொழுப்பு அமிலங்கள் மற்றும் ஆக்ஸிஜனேற்ற எதிர்ப்பிகளில் நிறைந்தது.</p>
-                    <div class="price">₹400/லிட்டர்</div>
+                    <div class="price">₹450/லிட்டர்</div>
                     <div class="contact-buttons">
                         <button class="btn btn-whatsapp" onclick="openWhatsApp('தேங்காய் எண்ணெய்')">
                             <i class="fab fa-whatsapp"></i> WhatsApp
@@ -142,7 +195,6 @@
                     </div>
                 </div>
 
-                <!-- 5: Groundnut Oil -->
                 <div class="product-item">
                     <div class="product-image">
                         <img src="images/peanut-oil.jpg" alt="நிலக்கடலை எண்ணெய்">
@@ -160,7 +212,6 @@
                     </div>
                 </div>
 
-                <!-- 6: Sesame Oil -->
                 <div class="product-item">
                     <div class="product-image">
                         <img src="images/sesame-oil.jpg" alt="எள் எண்ணெய்">
@@ -178,13 +229,12 @@
                     </div>
                 </div>
 
-                <!-- 7: Fresh Paneer -->
                 <div class="product-item center-product">
                     <div class="product-image">
                         <img src="images/paneer.jpg" alt="புதிய பன்னீர்">
                     </div>
                     <h3>புதிய பன்னீர்</h3>
-                    <p>தூய, கரิม பாலில் இருந்து கைவண்ணத்தில் தயாரிக்கப்பட்டது. எங்கள் பன்னீர் புரதம் மற்றும் கால்சியம் நிறைந்தது, பாதுகாக்கும் பொருட்கள் அல்லது சேர்க்கைகள் இல்லை.</p>
+                    <p>தூய, கரிம பாலில் இருந்து கைவண்ணத்தில் தயாரிக்கப்பட்டது. எங்கள் பன்னீர் புரதம் மற்றும் கால்சியம் நிறைந்தது, பாதுகாக்கும் பொருட்கள் அல்லது சேர்க்கைகள் இல்லை.</p>
                     <div class="price">₹100/கிகி</div>
                     <div class="contact-buttons">
                         <button class="btn btn-whatsapp" onclick="openWhatsApp('புதிய பன்னீர்')">
@@ -199,7 +249,7 @@
         </div>
     </section>
 
-    <!-- Payment Section (single QR image) -->
+    <!-- Payment Section -->
     <section class="payment" id="payment">
         <div class="container">
             <div class="section-title">
@@ -226,8 +276,7 @@
                     <div class="qr-code-container">
                         <div class="qr-item">
                             <div class="qr-code">
-                                <!-- single real QR image -->
-                                <img src="images/payment.jpg" alt="UPI QR Code" style="max-width:100%; max-height:100%; object-fit:contain;">
+                                <img src="images/payment.jpg" alt="UPI QR Code" class="payment-qr">
                             </div>
                             <p>ஸ்கேன் செய்து கட்டணம் செலுத்தவும்</p>
                         </div>
@@ -265,19 +314,11 @@
                             </div>
                             <div class="contact-text">
                                 <h4>தொலைபேசி எண்</h4>
-                                <p>+91 96005 47243</p>
+                                <p class="phone-large">+91 96005 47243</p>
                             </div>
                         </div>
 
-                        <div class="contact-item">
-                            <div class="contact-icon">
-                                <i class="fas fa-envelope"></i>
-                            </div>
-                            <div class="contact-text">
-                                <h4>மின்னஞ்சல் முகவரி</h4>
-                                <p>info@farmfreshorganics.com</p>
-                            </div>
-                        </div>
+                        <!-- Removed email as requested -->
 
                         <div class="contact-item">
                             <div class="contact-icon">
@@ -285,7 +326,7 @@
                             </div>
                             <div class="contact-text">
                                 <h4>WhatsApp</h4>
-                                <p>+91 96005 47243</p>
+                                <p class="phone-large">+91 96005 47243</p>
                             </div>
                         </div>
                     </div>
@@ -322,7 +363,7 @@
             <div class="footer-content">
                 <div class="footer-logo">
                     <i class="fas fa-seedling"></i>
-                    <h2>நெள்ளை கிருஷ்ணா ஆர்கானிக்ஸ்</h2>
+                    <h2>நெல்லை கிருஷ்ணா ஆர்கானிக்ஸ்</h2>
                 </div>
 
                 <div class="footer-links">
@@ -346,220 +387,67 @@
                     </button>
                 </div>
 
-                <p class="copyright">© 2023 நெள்ளை கிருஷ்ணா ஆர்கானிக்ஸ். அனைத்து உரிமைகளும் பாதுகாக்கப்பட்டவை.</p>
+                <p class="copyright">© 2023 நெல்லை கிருஷ்ணா ஆர்கானிக்ஸ். அனைத்து உரிமைகளும் பாதுகாக்கப்பட்டவை.</p>
             </div>
         </div>
     </footer>
 
     <script>
-        // Product data for rotating card — ordered as requested (Tamil)
+        // Tamil product data (coconut oil price updated)
         const products = [
-            {
-                name: "நாட்டு பசு நெய்",
-                description: "பாரம்பரிய பிலோனா முறையைப் பயன்படுத்தி தயாரிக்கப்பட்ட தூய தேசி மாட்டு நெய். ஊட்டச்சத்துக்கள் நிறைந்தது மற்றும் தனித்துவமான நறுமணம் மற்றும் சுவை கொண்டது.",
-                price: "₹450/500 மிலி",
-                image: "images/ghee.png"
-            },
-            {
-                name: "ரத்தசாலி அரிசி",
-                description: "ரத்தசாலி அரிசி இரும்புச் சத்து மற்றும் நார்ச்சத்து அதிகம் கொண்ட பாரம்பரிய அரிசியாகும். இதை தொடர்ந்து சாப்பிடுவதால் சர்க்கரை நோயை கட்டுப்படுத்த உதவுகிறது என்றும், உடல்நலத்திற்கு பல நன்மைகள் அளிக்கிறது என்றும் கூறப்படுகிறது.",
-                price: "₹200/கிகி",
-                image: "images/red-rice.png"
-            },
-            {
-                name: "ஆர்கானிக் சாப்பாடு அரிசி",
-                description: "ஆர்கானிக் சாப்பாடு அரிசி இயற்கை முறையில் நமது வயல்களில் இருந்து பெறப்படும் தூய மற்றும் ஆரோக்கியமான அரிசியாகும். ரசாயனமில்லாமல் விளைவிக்கப்பட்ட இதன் இயற்கைத்தன்மை காரணமாக தினசரி உணவிற்கு மிகவும் பொருத்தமானதாகும்.",
-                price: "₹80/கிகி",
-                image: "images/organic-rice.jpg"
-            },
-            {
-                name: "தேங்காய் எண்ணெய்",
-                description: "பாரம்பரிய முறைகளைப் பயன்படுத்தி பிரித்தெடுக்கப்பட்ட குளிர்-அழுத்தப்பட்ட, கன்னி தேங்காய் எண்ணெய். ஆரோக்கியமான கொழுப்பு அமிலங்கள் மற்றும் ஆக்ஸிஜனேற்ற எதிர்ப்பிகளில் நிறைந்தது.",
-                price: "₹400/லிட்டர்",
-                image: "images/coconut-oil.jpg"
-            },
-            {
-                name: "நிலக்கடலை எண்ணெய்",
-                description: "இயற்கை கொட்டை சுவை கொண்ட தூய, குளிர்-அழுத்தப்பட்ட நிலக்கடலை எண்ணெய். வைட்டமின் ஈ மற்றும் ஒற்றைநிறைவற்ற கொழுப்புகளில் நிறைந்தது.",
-                price: "₹270/லிட்டர்",
-                image: "images/peanut-oil.jpg"
-            },
-            {
-                name: "எள் எண்ணெய்",
-                description: "ஆற்றல் மிக்க நறுமணம் மற்றும் சுவை கொண்ட தூய, குளிர்-அழுத்தப்பட்ட எள் எண்ணெய். அதன் ஆக்ஸிஜனேற்ற எதிர்ப்பி பண்புகள் மற்றும் உயர் புகை புள்ளிக்கு அறியப்பட்டது.",
-                price: "₹380/லிட்டர்",
-                image: "images/sesame-oil.jpg"
-            },
-            {
-                name: "புதிய பன்னீர்",
-                description: "தூய, கரிம பாலில் இருந்து கைவண்ணத்தில் தயாரிக்கப்பட்டது. எங்கள் பன்னீர் புரதம் மற்றும் கால்சியம் நிறைந்தது, பாதுகாக்கும் பொருட்கள் அல்லது சேர்க்கைகள் இல்லை.",
-                price: "₹100/கிகி",
-                image: "images/paneer.jpg"
-            }
+            { name: "நாட்டு பசு நெய்", description: "பாரம்பரிய பிலோனா முறையைப் பயன்படுத்தி தயாரிக்கப்பட்ட தூய தேசி மாட்டு நெய். ஊட்டச்சத்துக்கள் நிறைந்தது மற்றும் தனித்துவமான நறுமணம் மற்றும் சுவை கொண்டது.", price: "₹450/500 மிலி", image: "images/ghee.png" },
+            { name: "ரத்தசாலி அரிசி", description: "ரத்தசாலி அரிசி இரும்புச் சத்து மற்றும் நார்ச்சத்து அதிகம் கொண்ட பாரம்பரிய அரிசியாகும்.", price: "₹200/கிகி", image: "images/red-rice.png" },
+            { name: "ஆர்கானிக் சாப்பாடு அரிசி", description: "ஆர்கானிக் அரிசி...", price: "₹80/கிகி", image: "images/organic-rice.jpg" },
+            { name: "தேங்காய் எண்ணெய்", description: "குளிர்-அழுத்தப்பட்ட தேங்காய் எண்ணெய்.", price: "₹450/லிட்டர்", image: "images/coconut-oil.jpg" },
+            { name: "நிலக்கடலை எண்ணெய்", description: "தூய நிலக்கடலை எண்ணெய்.", price: "₹270/லிட்டர்", image: "images/peanut-oil.jpg" },
+            { name: "எள் எண்ணெய்", description: "தூய எள் எண்ணெய்.", price: "₹380/லிட்டர்", image: "images/sesame-oil.jpg" },
+            { name: "புதிய பன்னீர்", description: "தூய பன்னீர்.", price: "₹100/கிகி", image: "images/paneer.jpg" }
         ];
 
-        // Initialize rotating card
         function initRotatingCard() {
             const cardContainer = document.getElementById('rotatingCard');
-
-            // Create card faces
             products.forEach((product, index) => {
                 const cardFace = document.createElement('div');
                 cardFace.className = `card-face ${index === 0 ? 'active' : ''}`;
-
                 cardFace.innerHTML = `
-                    <div class="product-image">
-                        <img src="${product.image}" alt="${product.name}">
-                    </div>
-                    <div class="product-info">
-                        <h3>${product.name}</h3>
-                        <p>${product.description}</p>
-                        <div class="product-price">${product.price}</div>
-                        <div class="contact-buttons">
-                            <button class="btn btn-whatsapp" onclick="openWhatsApp('${product.name}')">
-                                <i class="fab fa-whatsapp"></i> ஆர்டர்
-                            </button>
-                            <button class="btn btn-call" onclick="makeCall()">
-                                <i class="fas fa-phone-alt"></i> அழைக்கவும்
-                            </button>
-                        </div>
-                    </div>
-                `;
-
+                    <div class="product-image"><img src="${product.image}" alt="${product.name}"></div>
+                    <div class="product-info"><h3>${product.name}</h3><p>${product.description}</p><div class="product-price">${product.price}</div>
+                    <div class="contact-buttons"><button class="btn btn-whatsapp" onclick="openWhatsApp('${product.name}')"><i class="fab fa-whatsapp"></i> ஆர்டர்</button>
+                    <button class="btn btn-call" onclick="makeCall()"><i class="fas fa-phone-alt"></i> அழைக்கவும்</button></div></div>`;
                 cardContainer.appendChild(cardFace);
             });
-
-            // Add dots for navigation
             const cardNav = document.createElement('div');
             cardNav.className = 'card-nav';
-            cardNav.innerHTML = `
-                <div class="card-dots">
-                    ${products.map((_, i) => 
-                        `<span class="dot ${i === 0 ? 'active' : ''}" onclick="rotateToCard(${i})"></span>`
-                    ).join('')}
-                </div>
-            `;
-
-            // Append the navigation to the card container
+            cardNav.innerHTML = `<div class="card-dots">${products.map((_, i) => `<span class="dot ${i === 0 ? 'active' : ''}" onclick="rotateToCard(${i})"></span>`).join('')}</div>`;
             cardContainer.appendChild(cardNav);
-
-            // Auto rotate every 5 seconds
             setInterval(() => { rotateCard(); }, 5000);
         }
 
         let currentCardIndex = 0;
-
         function rotateCard() {
             const card = document.getElementById('rotatingCard');
             const totalCards = products.length;
-
-            // Hide current card
             if (card.children[currentCardIndex]) card.children[currentCardIndex].classList.remove('active');
-
-            // Calculate next card index
             currentCardIndex = (currentCardIndex + 1) % totalCards;
-
-            // Show next card
             if (card.children[currentCardIndex]) card.children[currentCardIndex].classList.add('active');
-
-            // Update active dot
-            document.querySelectorAll('.dot').forEach((dot, index) => {
-                dot.classList.toggle('active', index === currentCardIndex);
-            });
+            document.querySelectorAll('.dot').forEach((dot, index) => { dot.classList.toggle('active', index === currentCardIndex); });
         }
+        function rotateToCard(index) { const card = document.getElementById('rotatingCard'); if (card.children[currentCardIndex]) card.children[currentCardIndex].classList.remove('active'); currentCardIndex = index; if (card.children[currentCardIndex]) card.children[currentCardIndex].classList.add('active'); document.querySelectorAll('.dot').forEach((dot, i) => { dot.classList.toggle('active', i === currentCardIndex); }); }
 
-        function rotateToCard(index) {
-            const card = document.getElementById('rotatingCard');
-
-            if (card.children[currentCardIndex]) card.children[currentCardIndex].classList.remove('active');
-
-            currentCardIndex = index;
-            if (card.children[currentCardIndex]) card.children[currentCardIndex].classList.add('active');
-
-            document.querySelectorAll('.dot').forEach((dot, i) => {
-                dot.classList.toggle('active', i === currentCardIndex);
-            });
-        }
-
-        // WhatsApp integration with fallback
         function openWhatsApp(productName) {
             const phoneNumber = "919600547243";
             const message = `வணக்கம், நான் ${productName} பற்றி ஆர்வமாக உள்ளேன். மேலும் விவரங்களை வழங்கி, ஒரு ஆர்டர் செய்ய உதவ முடியுமா?`;
             const encodedMessage = encodeURIComponent(message);
             const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
-
-            // Try to open WhatsApp
             const newWindow = window.open(whatsappUrl, '_blank');
-
-            // If WhatsApp fails to open, show alternatives
-            setTimeout(() => {
-                if (!newWindow || newWindow.closed || typeof newWindow.closed == 'undefined') {
-                    showContactAlternatives(productName, phoneNumber, message);
-                }
-            }, 500);
+            setTimeout(() => { if (!newWindow || newWindow.closed || typeof newWindow.closed == 'undefined') { showContactAlternatives(productName, phoneNumber, message); } }, 500);
         }
-
-        function showContactAlternatives(productName, phoneNumber, message) {
-            if (confirm("WhatsApp கிடைக்கவில்லை. அழைப்பு அல்லது SMS அனுப்ப விரும்புகிறீர்களா?")) {
-                const choice = confirm("அழைக்க OK ஐ கிளிக் செய்யவும், SMS அனுப்ப Cancel ஐ கிளிக் செய்யவும்");
-                if(choice) {
-                    makeCall();
-                } else {
-                    sendSMS(message);
-                }
-            }
-        }
-
-        function makeCall() {
-            const phoneNumber = "+919600547243";
-            window.open(`tel:${phoneNumber}`, '_self');
-        }
-
-        function sendSMS(message = "வணக்கம், உங்கள் கரிம பொருட்களில் நான் ஆர்வமாக உள்ளேன். தயவு செய்து என்னை தொடர்பு கொள்ளவும்.") {
-            const phoneNumber = "+919600547243";
-            const encodedMessage = encodeURIComponent(message);
-            window.open(`sms:${phoneNumber}?body=${encodedMessage}`, '_self');
-        }
-
-        function shareOnGoogle() {
-            const shareUrl = "https://share.google.com/Wn42c888ouMiKlMGO";
-            window.open(shareUrl, '_blank');
-        }
-
-        // Mobile menu toggle
-        function initMobileMenu() {
-            const mobileMenuToggle = document.getElementById('mobileMenuToggle');
-            const mainNav = document.getElementById('mainNav');
-
-            if (mobileMenuToggle && mainNav) {
-                mobileMenuToggle.addEventListener('click', function() {
-                    mainNav.classList.toggle('active');
-
-                    const icon = this.querySelector('i');
-                    if (mainNav.classList.contains('active')) {
-                        icon.classList.remove('fa-bars');
-                        icon.classList.add('fa-times');
-                    } else {
-                        icon.classList.remove('fa-times');
-                        icon.classList.add('fa-bars');
-                    }
-                });
-
-                const navLinks = mainNav.querySelectorAll('a');
-                navLinks.forEach(link => {
-                    link.addEventListener('click', function() {
-                        mainNav.classList.remove('active');
-                        mobileMenuToggle.querySelector('i').classList.remove('fa-times');
-                        mobileMenuToggle.querySelector('i').classList.add('fa-bars');
-                    });
-                });
-            }
-        }
-
-        document.addEventListener('DOMContentLoaded', function() {
-            initRotatingCard();
-            initMobileMenu();
-        });
+        function showContactAlternatives(productName, phoneNumber, message) { if (confirm("WhatsApp கிடைக்கவில்லை. அழைப்பு அல்லது SMS அனுப்ப விரும்புகிறீர்களா?")) { const choice = confirm("அழைக்க OK ஐ கிளிக் செய்யவும், SMS அனுப்ப Cancel ஐ கிளிக் செய்யவும்"); if(choice) { makeCall(); } else { sendSMS(message); } } }
+        function makeCall() { const phoneNumber = "+919600547243"; window.open(`tel:${phoneNumber}`, '_self'); }
+        function sendSMS(message = "வணக்கம், உங்கள் கரிம பொருட்களில் நான் ஆர்வமாக உள்ளேன். தயவு செய்து என்னை தொடர்பு கொள்ளவும்.") { const phoneNumber = "+919600547243"; const encodedMessage = encodeURIComponent(message); window.open(`sms:${phoneNumber}?body=${encodedMessage}`, '_self'); }
+        function shareOnGoogle() { const shareUrl = "https://share.google.com/Wn42c888ouMiKlMGO"; window.open(shareUrl, '_blank'); }
+        function initMobileMenu() { const mobileMenuToggle = document.getElementById('mobileMenuToggle'); const mainNav = document.getElementById('mainNav'); if (mobileMenuToggle && mainNav) { mobileMenuToggle.addEventListener('click', function() { mainNav.classList.toggle('active'); const icon = this.querySelector('i'); if (mainNav.classList.contains('active')) { icon.classList.remove('fa-bars'); icon.classList.add('fa-times'); } else { icon.classList.remove('fa-times'); icon.classList.add('fa-bars'); } }); const navLinks = mainNav.querySelectorAll('a'); navLinks.forEach(link => { link.addEventListener('click', function() { mainNav.classList.remove('active'); mobileMenuToggle.querySelector('i').classList.remove('fa-times'); mobileMenuToggle.querySelector('i').classList.add('fa-bars'); }); }); } }
+        document.addEventListener('DOMContentLoaded', function() { initRotatingCard(); initMobileMenu(); });
     </script>
 </body>
 </html>

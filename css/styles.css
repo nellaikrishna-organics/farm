@@ -34,6 +34,14 @@ header {
     align-items: center;
 }
 
+.payment-qr {
+    max-width: 320px;   /* increase width */
+    max-height: 320px;  /* increase height */
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+}
+
 .logo {
     display: flex;
     align-items: center;

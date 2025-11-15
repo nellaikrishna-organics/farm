@@ -7,6 +7,51 @@
 
     <link rel="stylesheet" href="./css/styles.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Small page-specific overrides (kept minimal since you already have styles.css) -->
+    <style>
+        /* Logo image sizing and tagline */
+        .logo { display:flex; align-items:center; gap:12px; }
+        .logo-img {
+            width:140px;
+            height:140px;
+            object-fit:contain;
+            border-radius:8px;
+            transform:scale(1.4);
+            max-height:80px; /* keeps header height same */
+            width:auto; /* allow natural width */
+        }
+        .logo h1 { margin:0; font-size:1.25rem; }
+        .tagline {
+            margin:0;
+            font-size:0.9rem;
+            opacity:0.95;
+            font-weight:700;
+            color:black; /* organic green shade */
+            }
+
+        /* Header phone styling */
+        .header-phone { display:flex; align-items:center; gap:8px; margin-left:18px; }
+        .header-phone a { text-decoration:none; color:inherit; font-weight:600; font-size:0.95rem; }
+
+        /* Make phone number slightly larger in contact section */
+        .contact-info .contact-item .contact-text p.phone-large { font-size:1.05rem; font-weight:600; margin:0.15rem 0 0 0; }
+
+        /* Payment QR responsive sizing: make QR a bit larger on small screens */
+        .qr-code img.payment-qr { max-width:220px; max-height:220px; object-fit:contain; }
+        @media (max-width:600px) {
+            .qr-code img.payment-qr { max-width:260px; max-height:260px; }
+            .logo-img { width:64px; height:64px; }
+            .logo h1 { font-size:1.1rem; }
+            .header-phone a { font-size:1rem; }
+        }
+
+        /* Small spacing tweak for header-right to keep alignment good */
+        .header-right { display:flex; align-items:center; gap:12px; }
+
+        /* Ensure rotating card images don't overflow small screens */
+        .rotating-card .product-image img { max-width:100%; height:auto; }
+    </style>
 </head>
 <body>
     <!-- Header -->
@@ -14,12 +59,18 @@
         <div class="container">
             <div class="header-content">
                 <div class="logo">
-                    <i class="fas fa-seedling"></i>
-                    <h1>Nellai Krishna Organics</h1>
+                    <!-- Use your logo.png here -->
+                    <img src="images/logo.png" alt="Nellai Krishna Organics" class="logo-img"/>
+                    <div>
+                        <h1>Nellai Krishna Organics</h1>
+                        <p class="tagline">Pure, authentic, and sourced directly from trusted farms</p>
+                    </div>
                 </div>
+
                 <button class="mobile-menu-toggle" id="mobileMenuToggle">
                     <i class="fas fa-bars"></i>
                 </button>
+
                 <nav id="mainNav">
                     <ul>
                         <li><a href="#home">Home</a></li>
@@ -28,10 +79,17 @@
                         <li><a href="#contact">Contact</a></li>
                     </ul>
                 </nav>
+
                 <div class="header-right">
                     <div class="language-toggle">
                         <button class="lang-btn active">EN</button>
                         <button class="lang-btn" onclick="window.location.href='tamil.html'">தமிழ்</button>
+                    </div>
+
+                    <!-- Phone number in header (clickable) -->
+                    <div class="header-phone">
+                        <i class="fas fa-phone-alt"></i>
+                        <a href="tel:+919600547243">+91 96005 47243</a>
                     </div>
                 </div>
             </div>
@@ -125,7 +183,7 @@
                     </div>
                     <h3>Coconut Oil</h3>
                     <p>Cold-pressed, virgin coconut oil extracted using traditional methods. Rich in healthy fatty acids and antioxidants.</p>
-                    <div class="price">₹400/liter</div>
+                    <div class="price">₹450/liter</div>
                     <div class="contact-buttons">
                         <button class="btn btn-whatsapp" onclick="openWhatsApp('Coconut Oil')">
                             <i class="fab fa-whatsapp"></i> WhatsApp
@@ -217,7 +275,7 @@
                         <div class="qr-item">
                             <div class="qr-code">
                                 <!-- Single QR image (place your file as images/payment.jpg) -->
-                                <img src="images/payment.jpg" alt="UPI QR Code" style="max-width:100%; max-height:100%; object-fit:contain;">
+                                <img src="images/payment.jpg" alt="UPI QR Code" class="payment-qr">
                             </div>
                             <p>Scan to Pay (UPI)</p>
                         </div>
@@ -253,25 +311,17 @@
                             </div>
                             <div class="contact-text">
                                 <h4>Phone Number</h4>
-                                <p>+91 96005 47243</p>
+                                <p class="phone-large">+91 96005 47243</p>
                             </div>
                         </div>
-                        <div class="contact-item">
-                            <div class="contact-icon">
-                                <i class="fas fa-envelope"></i>
-                            </div>
-                            <div class="contact-text">
-                                <h4>Email Address</h4>
-                                <p>info@farmfreshorganics.com</p>
-                            </div>
-                        </div>
+
                         <div class="contact-item">
                             <div class="contact-icon">
                                 <i class="fab fa-whatsapp"></i>
                             </div>
                             <div class="contact-text">
                                 <h4>WhatsApp</h4>
-                                <p>+91 96005 47243</p>
+                                <p class="phone-large">+91 96005 47243</p>
                             </div>
                         </div>
                     </div>
@@ -355,7 +405,7 @@
             {
                 name: "Coconut Oil",
                 description: "Cold-pressed, virgin coconut oil extracted using traditional methods. Rich in healthy fatty acids.",
-                price: "₹400/liter",
+                price: "₹450/liter",
                 image: "images/coconut-oil.jpg"
             },
             {
