@@ -51,6 +51,39 @@
 
         /* Ensure rotating card images don't overflow small screens */
         .rotating-card .product-image img { max-width:100%; height:auto; }
+
+        /* Increase rotating card size on mobile */
+@media (max-width: 600px) {
+    .rotating-card-container {
+        transform: scale(1.3);      /* increase overall card size */
+        transform-origin: center;
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+
+    .rotating-card {
+        padding: 18px !important;
+    }
+
+    .rotating-card .product-image img {
+        width: 150px !important;   /* larger product image */
+        height: auto;
+    }
+
+    .rotating-card .product-info h3 {
+        font-size: 1.2rem !important;
+    }
+
+    .rotating-card .product-info p {
+        font-size: 1rem !important;
+    }
+
+    .rotating-card .product-price {
+        font-size: 1.05rem !important;
+        font-weight: 700;
+    }
+}
+
     </style>
 </head>
 <body>
@@ -181,7 +214,7 @@
                     <div class="product-image">
                         <img src="images/coconut-oil.jpg" alt="Coconut Oil">
                     </div>
-                    <h3>Coconut Oil</h3>
+                    <h3>Organic Coconut Oil</h3>
                     <p>Cold-pressed, virgin coconut oil extracted using traditional methods. Rich in healthy fatty acids and antioxidants.</p>
                     <div class="price">₹450/liter</div>
                     <div class="contact-buttons">
@@ -403,7 +436,7 @@
                 image: "images/organic-rice.jpg"
             },
             {
-                name: "Coconut Oil",
+                name: "Organic Coconut Oil",
                 description: "Cold-pressed, virgin coconut oil extracted using traditional methods. Rich in healthy fatty acids.",
                 price: "₹450/liter",
                 image: "images/coconut-oil.jpg"
